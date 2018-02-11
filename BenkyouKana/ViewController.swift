@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Hiragana
     let hiraganaDict = [0: ["あ", "a"], 1: ["い", "i"], 2: ["う", "u"], 3: ["え", "e"], 4: ["お", "o"],
-                        5: ["", "ka"], 6: ["", "ki"], 7: ["", "ku"], 8: ["", "ke"], 9: ["", "ko"],
+                        5: ["か", "ka"], 6: ["き", "ki"], 7: ["く", "ku"], 8: ["け", "ke"], 9: ["こ", "ko"],
                         10: ["さ", "sa"], 11: ["し", "shi"], 12: ["す", "su"], 13: ["せ", "se"], 14: ["そ", "so"],
                         15: ["た", "ta"], 16: ["ち", "chi"], 17: ["つ", "tsu"], 18: ["て", "te"], 19: ["と", "to"],
                         20: ["な", "na"], 21: ["に", "ni"], 22: ["ぬ", "nu"], 23: ["ね", "ne"], 24: ["の", "no"],
@@ -40,7 +40,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // This takes the upper bound, rand between 0 and value-1
     // Pass paramater equal to last int in hiraganaDict
-    let randInt = Int(arc4random_uniform(70))
+    var randInt = Int(arc4random_uniform(70))
     
     
     override func viewDidLoad() {
@@ -78,6 +78,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // if valid, show checkmark and clear the correctKanaLabel
             iconImageView.image = UIImage(named: "greenCheck")
             correctKanaLabel.text = ""
+            
+            reloadContent()
         }
         
         
@@ -90,7 +92,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
+    // Custom functions
+    func reloadContent() {
+        // generate new random int
+        randInt = Int(arc4random_uniform(70))
+        
+        // Pull random int, and use it to get a random kana from dictionary
+        kanaLabel.text = hiraganaDict[randInt]![0]
+    }
     
     
     
