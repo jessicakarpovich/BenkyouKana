@@ -76,13 +76,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         else {
             
             // if valid, show checkmark and clear the correctKanaLabel
-            iconImageView.image = UIImage(named: "greenCheck")
+            //iconImageView.image = UIImage(named: "greenCheck")
             correctKanaLabel.text = ""
             
             reloadContent()
         }
-        
-        
         return true
     }
     
@@ -92,13 +90,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    // Custom functions
+    //MARK: Custom functions
+    
+    // Reload hiragana content, only call when user enters the right answer
     func reloadContent() {
         // generate new random int
         randInt = Int(arc4random_uniform(70))
         
         // Pull random int, and use it to get a random kana from dictionary
         kanaLabel.text = hiraganaDict[randInt]![0]
+        
+        // Clear iconImageView
+        iconImageView.image = nil
     }
     
     
