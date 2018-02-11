@@ -63,11 +63,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        /* Don't hide the keyboard, the user needs it
         // Hide the keyboard
-        textField.resignFirstResponder()
+        //textField.resignFirstResponder()
+        */
+        
+        // trim whitespace from user input
+        let userInput = romajiTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Check user input
-        if romajiTextField.text != hiraganaDict[randInt]![1] {
+        if userInput != hiraganaDict[randInt]![1] {
             
             // If invalid, show x and correct answer
             iconImageView.image = UIImage(named: "redX")
@@ -102,6 +107,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // Clear iconImageView
         iconImageView.image = nil
+        
+        // Clear romaji text field
+        // when incorrect, don't, so user can see what they entered compared to the answer
+        romajiTextField.text = ""
     }
     
     
