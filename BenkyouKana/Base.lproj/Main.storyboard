@@ -25,30 +25,45 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BenkyouKana" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jn5-K9-dt6">
                                         <rect key="frame" x="0.0" y="0.0" width="319" height="60"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" placeholderIntrinsicWidth="125" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnq-Dv-QAb">
+                                    <button opaque="NO" tag="1" contentMode="center" placeholderIntrinsicWidth="125" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnq-Dv-QAb">
                                         <rect key="frame" x="97" y="160" width="125" height="50"/>
-                                        <color key="backgroundColor" red="0.61870163680000001" green="0.0061834626830000001" blue="0.35727775099999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="HAe-vC-2KD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                         <state key="normal" title="Hiragana">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" red="0.068953894078731537" green="0.094618178904056549" blue="0.21921324729919434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="showHiragana" id="Lte-5p-ahj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="125" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ju0-Xg-Ki4">
                                         <rect key="frame" x="97" y="310" width="125" height="50"/>
-                                        <color key="backgroundColor" red="0.61870163680000001" green="0.0061834626830000001" blue="0.35727775099999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="PNX-4X-VwT"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                         <state key="normal" title="Katakana">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" red="0.068953894079999994" green="0.094618178900000002" blue="0.2192132473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="showKatakana" id="aXK-nh-YQ7"/>
                                         </connections>
@@ -56,7 +71,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.61870163680000001" green="0.0061834626830000001" blue="0.35727775099999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nwJ-pe-6Oj" firstAttribute="top" secondItem="KQg-TQ-QNu" secondAttribute="top" constant="20" id="c0n-Mw-a4q"/>
                             <constraint firstItem="nwJ-pe-6Oj" firstAttribute="leading" secondItem="KQg-TQ-QNu" secondAttribute="leading" constant="28" id="rs2-U4-LqY"/>
@@ -83,7 +98,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kana" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6VS-4S-pCT">
                                         <rect key="frame" x="27.5" y="0.0" width="320" height="179.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="150"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.072857044639999993" green="0.098411105570000004" blue="0.22716411950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter romaji" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kWU-kL-CV1">
@@ -107,7 +122,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="iGT-b8-mDa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="9o4-El-ACJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iGT-b8-mDa" secondAttribute="trailing" id="f5I-NI-uL9"/>
@@ -131,6 +146,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aXK-nh-YQ7"/>
+        <segue reference="Lte-5p-ahj"/>
     </inferredMetricsTieBreakers>
 </document>
