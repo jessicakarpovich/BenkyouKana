@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kR9-jO-Aqp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,10 +11,68 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
+        <scene sceneID="NPQ-qF-t8G">
+            <objects>
+                <viewController id="kR9-jO-Aqp" customClass="MainViewController" customModule="BenkyouKana" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fqC-nR-T5w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="nwJ-pe-6Oj">
+                                <rect key="frame" x="28" y="40" width="319" height="360"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BenkyouKana" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jn5-K9-dt6">
+                                        <rect key="frame" x="0.0" y="0.0" width="319" height="60"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" placeholderIntrinsicWidth="125" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnq-Dv-QAb">
+                                        <rect key="frame" x="97" y="160" width="125" height="50"/>
+                                        <color key="backgroundColor" red="0.61870163680000001" green="0.0061834626830000001" blue="0.35727775099999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="HAe-vC-2KD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <state key="normal" title="Hiragana">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showHiragana" id="Lte-5p-ahj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="125" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ju0-Xg-Ki4">
+                                        <rect key="frame" x="97" y="310" width="125" height="50"/>
+                                        <color key="backgroundColor" red="0.61870163680000001" green="0.0061834626830000001" blue="0.35727775099999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <state key="normal" title="Katakana">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showKatakana" id="aXK-nh-YQ7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nwJ-pe-6Oj" firstAttribute="top" secondItem="KQg-TQ-QNu" secondAttribute="top" constant="20" id="c0n-Mw-a4q"/>
+                            <constraint firstItem="nwJ-pe-6Oj" firstAttribute="leading" secondItem="KQg-TQ-QNu" secondAttribute="leading" constant="28" id="rs2-U4-LqY"/>
+                            <constraint firstItem="KQg-TQ-QNu" firstAttribute="trailing" secondItem="nwJ-pe-6Oj" secondAttribute="trailing" constant="28" id="tQL-rg-4So"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KQg-TQ-QNu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WHd-q2-8Bk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-290.39999999999998" y="41.829085457271368"/>
+        </scene>
+        <!--Kana Practice-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BenkyouKana" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="KanaViewController" customModule="BenkyouKana" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,6 +115,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Kana Practice" id="YYX-k1-6uH">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uHH-tk-mDm"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="correctKanaLabel" destination="ocf-45-Cr9" id="sDt-6D-a8a"/>
                         <outlet property="iconImageView" destination="tkg-S6-zx8" id="jlR-6o-OcH"/>
@@ -66,6 +127,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="679" y="42"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aXK-nh-YQ7"/>
+    </inferredMetricsTieBreakers>
 </document>

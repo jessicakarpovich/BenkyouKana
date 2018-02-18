@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		FCAB0E262030D985005EDE5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAB0E252030D985005EDE5C /* AppDelegate.swift */; };
-		FCAB0E282030D985005EDE5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAB0E272030D985005EDE5C /* ViewController.swift */; };
+		FCAB0E282030D985005EDE5C /* KanaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAB0E272030D985005EDE5C /* KanaViewController.swift */; };
 		FCAB0E2B2030D985005EDE5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAB0E292030D985005EDE5C /* Main.storyboard */; };
 		FCAB0E2D2030D985005EDE5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCAB0E2C2030D985005EDE5C /* Assets.xcassets */; };
 		FCAB0E302030D985005EDE5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAB0E2E2030D985005EDE5C /* LaunchScreen.storyboard */; };
 		FCAB0E3B2030D985005EDE5C /* BenkyouKanaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAB0E3A2030D985005EDE5C /* BenkyouKanaTests.swift */; };
+		FCFA31B9203A150800FAFE1A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA31B8203A150800FAFE1A /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +29,7 @@
 /* Begin PBXFileReference section */
 		FCAB0E222030D985005EDE5C /* BenkyouKana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BenkyouKana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAB0E252030D985005EDE5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FCAB0E272030D985005EDE5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FCAB0E272030D985005EDE5C /* KanaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanaViewController.swift; sourceTree = "<group>"; };
 		FCAB0E2A2030D985005EDE5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCAB0E2C2030D985005EDE5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCAB0E2F2030D985005EDE5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +37,7 @@
 		FCAB0E362030D985005EDE5C /* BenkyouKanaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BenkyouKanaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAB0E3A2030D985005EDE5C /* BenkyouKanaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenkyouKanaTests.swift; sourceTree = "<group>"; };
 		FCAB0E3C2030D985005EDE5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCFA31B8203A150800FAFE1A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				FCAB0E252030D985005EDE5C /* AppDelegate.swift */,
-				FCAB0E272030D985005EDE5C /* ViewController.swift */,
+				FCAB0E272030D985005EDE5C /* KanaViewController.swift */,
+				FCFA31B8203A150800FAFE1A /* MainViewController.swift */,
 				FCAB0E292030D985005EDE5C /* Main.storyboard */,
 				FCAB0E2C2030D985005EDE5C /* Assets.xcassets */,
 				FCAB0E2E2030D985005EDE5C /* LaunchScreen.storyboard */,
@@ -199,7 +202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCAB0E282030D985005EDE5C /* ViewController.swift in Sources */,
+				FCFA31B9203A150800FAFE1A /* MainViewController.swift in Sources */,
+				FCAB0E282030D985005EDE5C /* KanaViewController.swift in Sources */,
 				FCAB0E262030D985005EDE5C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

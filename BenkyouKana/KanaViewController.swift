@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class KanaViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: Properties
     @IBOutlet weak var kanaLabel: UILabel!
@@ -16,30 +16,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var correctKanaLabel: UILabel!
     
+    // Set a default value
+    var dict = [0: ["あ", "a"]]
     
     
-    
-    
-    //MARK: Hiragana
-    let hiraganaDict = [0: ["あ", "a"], 1: ["い", "i"], 2: ["う", "u"], 3: ["え", "e"], 4: ["お", "o"],
-                        5: ["か", "ka"], 6: ["き", "ki"], 7: ["く", "ku"], 8: ["け", "ke"], 9: ["こ", "ko"],
-                        10: ["さ", "sa"], 11: ["し", "shi"], 12: ["す", "su"], 13: ["せ", "se"], 14: ["そ", "so"],
-                        15: ["た", "ta"], 16: ["ち", "chi"], 17: ["つ", "tsu"], 18: ["て", "te"], 19: ["と", "to"],
-                        20: ["な", "na"], 21: ["に", "ni"], 22: ["ぬ", "nu"], 23: ["ね", "ne"], 24: ["の", "no"],
-                        25: ["は", "ha"], 26: ["ひ", "hi"], 27: ["ふ", "fu"], 28: ["へ", "he"], 29: ["ほ", "ho"],
-                        30: ["ま", "ma"], 31: ["み", "mi"], 32: ["む", "mu"], 33: ["め", "me"], 34: ["も", "mo"],
-                        35: ["や", "ya"], 36: ["ゆ", "yu"], 37: ["よ", "yo"],
-                        38: ["ら", "ra"], 39: ["り", "ri"], 40: ["る", "ru"], 41: ["れ", "re"], 42: ["ろ", "ro"],
-                        43: ["わ", "wa"], 44: ["を", "wo"],
-                        45: ["ん", "n"],
-                        46: ["が", "ga"], 47: ["ぎ", "gi"], 48: ["ぐ", "gu"], 49: ["げ", "ge"], 50: ["ご", "go"],
-                        51: ["ざ", "za"], 52: ["じ", "ji"], 53: ["ず", "zu"], 54: ["ぜ", "ze"], 55: ["ぞ", "zo"],
-                        56: ["だ", "da"], 57: ["ぢ", "di"], 58: ["づ", "dzu"], 59: ["で", "de"], 60: ["ど", "do"],
-                        61: ["ば", "ba"], 62: ["び", "bi"], 63: ["ぶ", "bu"], 64: ["べ", "be"], 65: ["ぼ", "bo"],
-                        66: ["ぱ", "pa"], 67: ["ぴ", "pi"], 68: ["ぷ", "pu"], 69: ["ぺ", "pe"], 70: ["ぽ", "po"]]
     
     // This takes the upper bound, rand between 0 and value-1
-    // Pass paramater equal to last int in hiraganaDict
+    // Pass paramater equal to last int in dict
     var randInt = Int(arc4random_uniform(70))
     
     
@@ -51,7 +34,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         romajiTextField.delegate = self
         
         // Pull random int, and use it to get a random kana from dictionary
-        kanaLabel.text = hiraganaDict[randInt]![0]
+        kanaLabel.text = dict[randInt]![0]
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,11 +56,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let userInput = romajiTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Check user input
-        if userInput != hiraganaDict[randInt]![1] {
+        if userInput != dict[randInt]![1] {
             
             // If invalid, show x and correct answer
             iconImageView.image = UIImage(named: "redX")
-            correctKanaLabel.text = hiraganaDict[randInt]![1]
+            //correctKanaLabel.text = hiraganaDict[randInt]![1]
+            correctKanaLabel.text = dict[randInt]![1]
         }
         else {
             
@@ -103,7 +88,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         randInt = Int(arc4random_uniform(70))
         
         // Pull random int, and use it to get a random kana from dictionary
-        kanaLabel.text = hiraganaDict[randInt]![0]
+        kanaLabel.text = dict[randInt]![0]
         
         // Clear iconImageView
         iconImageView.image = nil
