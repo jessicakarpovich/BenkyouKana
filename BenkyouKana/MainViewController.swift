@@ -86,6 +86,9 @@ class MainViewController: UIViewController {
 
             katakanaViewController.dict = katakanaDict
             
+        case "review":
+            os_log("Going to review options.", log: OSLog.default, type: .debug)
+            
         default:
             fatalError("Uexpected Segue Identifier; \(String(describing: segue.identifier))")
         }

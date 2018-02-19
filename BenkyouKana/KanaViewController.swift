@@ -18,6 +18,7 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
     
     // Set a default value
     var dict = [0: ["あ", "a"]]
+    var kana = Kana(name: "Hiragana", numberOfExercises: 25, dict: [0: ["あ", "a"]])
     
     
     

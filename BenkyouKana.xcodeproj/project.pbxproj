@@ -14,6 +14,8 @@
 		FCAB0E302030D985005EDE5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAB0E2E2030D985005EDE5C /* LaunchScreen.storyboard */; };
 		FCAB0E3B2030D985005EDE5C /* BenkyouKanaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAB0E3A2030D985005EDE5C /* BenkyouKanaTests.swift */; };
 		FCFA31B9203A150800FAFE1A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA31B8203A150800FAFE1A /* MainViewController.swift */; };
+		FCFA31BB203A46AE00FAFE1A /* Kana.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA31BA203A46AE00FAFE1A /* Kana.swift */; };
+		FCFA31BD203A4A3C00FAFE1A /* KanaSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA31BC203A4A3C00FAFE1A /* KanaSetupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		FCAB0E3A2030D985005EDE5C /* BenkyouKanaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenkyouKanaTests.swift; sourceTree = "<group>"; };
 		FCAB0E3C2030D985005EDE5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCFA31B8203A150800FAFE1A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FCFA31BA203A46AE00FAFE1A /* Kana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kana.swift; sourceTree = "<group>"; };
+		FCFA31BC203A4A3C00FAFE1A /* KanaSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanaSetupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				FCAB0E252030D985005EDE5C /* AppDelegate.swift */,
-				FCAB0E272030D985005EDE5C /* KanaViewController.swift */,
 				FCFA31B8203A150800FAFE1A /* MainViewController.swift */,
+				FCAB0E272030D985005EDE5C /* KanaViewController.swift */,
+				FCFA31BC203A4A3C00FAFE1A /* KanaSetupViewController.swift */,
 				FCAB0E292030D985005EDE5C /* Main.storyboard */,
+				FCFA31BA203A46AE00FAFE1A /* Kana.swift */,
 				FCAB0E2C2030D985005EDE5C /* Assets.xcassets */,
 				FCAB0E2E2030D985005EDE5C /* LaunchScreen.storyboard */,
 				FCAB0E312030D985005EDE5C /* Info.plist */,
@@ -202,9 +208,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFA31BB203A46AE00FAFE1A /* Kana.swift in Sources */,
 				FCFA31B9203A150800FAFE1A /* MainViewController.swift in Sources */,
 				FCAB0E282030D985005EDE5C /* KanaViewController.swift in Sources */,
 				FCAB0E262030D985005EDE5C /* AppDelegate.swift in Sources */,
+				FCFA31BD203A4A3C00FAFE1A /* KanaSetupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
