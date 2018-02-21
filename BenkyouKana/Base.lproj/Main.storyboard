@@ -256,6 +256,7 @@
                         <outlet property="correctKanaLabel" destination="ocf-45-Cr9" id="sDt-6D-a8a"/>
                         <outlet property="iconImageView" destination="tkg-S6-zx8" id="jlR-6o-OcH"/>
                         <outlet property="kanaLabel" destination="6VS-4S-pCT" id="Hip-rz-mVN"/>
+                        <outlet property="navbar" destination="Dat-e7-Ajl" id="4Iu-xK-brA"/>
                         <outlet property="romajiTextField" destination="kWU-kL-CV1" id="Cib-60-Lvv"/>
                     </connections>
                 </viewController>

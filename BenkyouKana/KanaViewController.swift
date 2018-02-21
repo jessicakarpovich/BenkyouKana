@@ -15,15 +15,20 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var romajiTextField: UITextField!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var correctKanaLabel: UILabel!
+    @IBOutlet weak var navbar: UINavigationBar!
     
     // Set a default value
     var dict = [0: ["あ", "a"]]
     var kana = Kana()
     var randInt = 0;
+    var excerciseCounter = 0
+    var correctCounter = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navbar.topItem?.title = kana.name + " Review"
         
         // Set the view controller to be the delegate of the text field
         // This will allow me to handle the user entered text
@@ -35,7 +40,7 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
         
         // Pull random int, and use it to get a random kana from dictionary
         kanaLabel.text = kana.dict[randInt]![0]
-        
+        excerciseCounter += 1
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,7 +74,16 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
             //iconImageView.image = UIImage(named: "greenCheck")
             correctKanaLabel.text = ""
             
-            reloadContent()
+            correctCounter += 1
+            
+            if excerciseCounter < kana.numberOfExcercises {
+                excerciseCounter += 1
+                reloadContent()
+            } else if excerciseCounter == kana.numberOfExcercises {
+                navbar.topItem?.title = kana.name + " Review Complete"
+                kanaLabel.text = "\(correctCounter)/ \(excerciseCounter)"
+                iconImageView.image = UIImage(named: "greenCheck")
+            }
         }
         return true
     }
