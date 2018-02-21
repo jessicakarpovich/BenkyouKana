@@ -267,12 +267,18 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         // Disable done button until valid input is entered
         doneBtn.isEnabled = false
         
+        // Set border radius around buttons
+        hiraganaButton.layer.cornerRadius = 8
+        katakanaButton.layer.cornerRadius = 8
+        
         // Set border around Hiragana Button by default
-        hiraganaButton.layer.borderWidth = 3
+        hiraganaButton.layer.borderWidth = 1
         hiraganaButton.layer.borderColor = UIColor(red:0.67, green:0.04, blue:0.39, alpha:1.0).cgColor
         
         // Handle the text field's user input
         self.excercisesTextField.delegate = self
+        
+        // Set up picker
         self.picker.delegate = self
         self.picker.dataSource = self
         pickerData = ["A-N", "Ga-Po", "Kya-Pyo", "A-N and Ga-Po", "A-N and Kya-Pyo",
@@ -297,7 +303,9 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        // Check that input is a valid Int
         if Int(excercisesTextField.text!) != nil {
+            // If so, set it and re-enable done Button
             kana.numberOfExercises = Int(excercisesTextField.text!)!
             doneBtn.isEnabled = true
         }
@@ -340,7 +348,7 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         katakanaButton.layer.borderWidth = 0
         
         // Add border width and color to the button that was clicked
-        sender.layer.borderWidth = 3
+        sender.layer.borderWidth = 1
         sender.layer.borderColor = UIColor(red:0.67, green:0.04, blue:0.39, alpha:1.0).cgColor
         
         // Set the name to equal the name of the button
@@ -353,7 +361,7 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         hiraganaButton.layer.borderWidth = 0
         
         // Add border width and color to the button that was clicked
-        sender.layer.borderWidth = 3
+        sender.layer.borderWidth = 1
         sender.layer.borderColor = UIColor(red:0.67, green:0.04, blue:0.39, alpha:1.0).cgColor
         
         // Set the name to equal the name of the button
@@ -382,15 +390,16 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
                     fatalError("Uexpected destination \(segue.destination)")
             }
             
+            // Pass name and exercise number to kana object in next view
             kanaViewController.kana.name = kana.name
             kanaViewController.kana.numberOfExercises = kana.numberOfExercises
             
+            // Based on the kana name, pass the correct kana dictionary
             if kana.name == "Hiragana" {
                 kanaViewController.kana.dict = hiraganaDictArray[pickerSelection]
             } else if kana.name == "Katakana" {
                 kanaViewController.kana.dict = katakanaDictArray[pickerSelection]
             }
-            
             
             
         default:

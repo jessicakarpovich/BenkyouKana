@@ -20,7 +20,6 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var doneBtn: UIBarButtonItem!
     
     // Set a default value
-    var dict = [0: ["あ", "a"]]
     var kana = Kana()
     var randInt = 0;
     var exerciseCounter = 0
@@ -30,6 +29,7 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Change navbar color
         navbar.barTintColor = UIColor.white
         
         //Hide done button until user completes all exercises
@@ -90,24 +90,24 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
                 exerciseCounter += 1
                 reloadContent()
                 
-                // If they have all been completed, show how much the user got right
+                // If they have all been completed
             } else if exerciseCounter == kana.numberOfExercises {
                 navbar.topItem?.title = kana.name + " Review Complete"
+                
+                // Adjust font size
+                kanaLabel.font = kanaLabel.font.withSize(80)
+                
+                // show how much the user got right
                 kanaLabel.text = "\(correctCounter)/ \(exerciseCounter)"
                 iconImageView.image = UIImage(named: "greenCheck")
                 
-                // Remove textfield
+                // Remove textfield, cancel btn, add done btn
                 romajiTextField.removeFromSuperview()
                 navbar.topItem?.leftBarButtonItem = nil
                 navbar.topItem?.rightBarButtonItem = doneBtn
             }
         }
         return true
-    }
-    
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        // use this to get any info you need from text field
     }
     
     
@@ -131,10 +131,12 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
     
     
     //MARK: Actions
+    // Cancel Btn
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
+    // Done btn
     @IBAction func done(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
