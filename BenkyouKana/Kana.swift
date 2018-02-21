@@ -18,7 +18,7 @@ class Kana {
     
     //MARK: Initialization
     
-    init(name: String, numberOfExercises: Int, dict: [Int: [String]]) {
+    init(name: String = "Hiragana", numberOfExercises: Int = 25, dict: [Int: [String]] = [0: ["あ", "a"]]) {
         
         // Initialize stored properties
         self.name = name

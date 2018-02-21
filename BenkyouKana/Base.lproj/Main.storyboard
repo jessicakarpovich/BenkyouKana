@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,7 +44,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showHiragana" id="Lte-5p-ahj"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showHiragana" id="rO9-0o-sN5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="125" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ju0-Xg-Ki4">
@@ -65,7 +64,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showKatakana" id="aXK-nh-YQ7"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showKatakana" id="sHC-9f-R05"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="125" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZpN-7t-E0x">
@@ -180,7 +179,11 @@
                                 <action selector="cancel:" destination="dlb-ni-1XP" id="3fe-a7-4QG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="4ab-ke-NvZ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="4ab-ke-NvZ">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="showDetail" identifier="StartReview" id="hpr-x8-PP9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="excercisesTextField" destination="bzF-Bw-hAe" id="IfL-1N-LD8"/>
@@ -193,7 +196,7 @@
             </objects>
             <point key="canvasLocation" x="1588" y="-545.57721139430294"/>
         </scene>
-        <!--Kana Practice-->
+        <!--Kana View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="KanaViewController" customModule="BenkyouKana" customModuleProvider="target" sceneMemberID="viewController">
@@ -201,11 +204,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dat-e7-Ajl">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="cYy-YR-Z86">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="krJ-7D-sfJ">
+                                            <connections>
+                                                <action selector="cancel:" destination="BYZ-38-t0r" id="gjP-FW-lgc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iGT-b8-mDa">
-                                <rect key="frame" x="0.0" y="40" width="375" height="313.5"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="313.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kana" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6VS-4S-pCT">
-                                        <rect key="frame" x="27.5" y="0.0" width="320" height="179.5"/>
+                                        <rect key="frame" x="28" y="0.0" width="319" height="179.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="150"/>
                                         <color key="textColor" red="0.072857044639999993" green="0.098411105570000004" blue="0.22716411950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -218,9 +233,6 @@
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="tkg-S6-zx8">
                                         <rect key="frame" x="162.5" y="225.5" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="tkg-S6-zx8" secondAttribute="height" multiplier="1:1" id="ebu-q1-dLC"/>
-                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="30" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocf-45-Cr9">
                                         <rect key="frame" x="0.0" y="283.5" width="375" height="30"/>
@@ -229,19 +241,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="6VS-4S-pCT" firstAttribute="leading" secondItem="iGT-b8-mDa" secondAttribute="leading" constant="28" id="oTW-Y3-MWk"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="iGT-b8-mDa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="9o4-El-ACJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iGT-b8-mDa" secondAttribute="trailing" id="f5I-NI-uL9"/>
-                            <constraint firstItem="iGT-b8-mDa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ouv-qu-rYB"/>
+                            <constraint firstItem="Dat-e7-Ajl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5Sa-4X-NJv"/>
+                            <constraint firstItem="Dat-e7-Ajl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ajr-1H-oaW"/>
+                            <constraint firstItem="iGT-b8-mDa" firstAttribute="top" secondItem="Dat-e7-Ajl" secondAttribute="bottom" constant="20" id="FkL-kV-qjL"/>
+                            <constraint firstItem="iGT-b8-mDa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="h49-Lq-FiO"/>
+                            <constraint firstItem="iGT-b8-mDa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="izE-D2-MjK"/>
+                            <constraint firstItem="Dat-e7-Ajl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xbU-EX-vEz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Kana Practice" id="YYX-k1-6uH">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uHH-tk-mDm"/>
-                    </navigationItem>
                     <connections>
                         <outlet property="correctKanaLabel" destination="ocf-45-Cr9" id="sDt-6D-a8a"/>
                         <outlet property="iconImageView" destination="tkg-S6-zx8" id="jlR-6o-OcH"/>
@@ -251,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2328.8000000000002" y="41.829085457271368"/>
+            <point key="canvasLocation" x="3255" y="42"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G1c-Te-5VL">
@@ -273,6 +288,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aXK-nh-YQ7"/>
+        <segue reference="hpr-x8-PP9"/>
     </inferredMetricsTieBreakers>
 </document>

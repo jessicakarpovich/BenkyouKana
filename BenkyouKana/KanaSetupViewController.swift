@@ -18,8 +18,25 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     
     var kana = Kana(name: "Hiragana", numberOfExercises: 25, dict: [0: ["あ", "a"]])
     var pickerData: [String] = [String]()
-    var pickerSelection = "A-N"
+    var pickerSelection = 0
     
+    
+    // Hiragana Sets
+    // A-N Set
+    let hiraganaANDict = [0: ["あ", "a"], 1: ["い", "i"], 2: ["う", "u"], 3: ["え", "e"], 4: ["お", "o"],
+                        5: ["か", "ka"], 6: ["き", "ki"], 7: ["く", "ku"], 8: ["け", "ke"], 9: ["こ", "ko"],
+                        10: ["さ", "sa"], 11: ["し", "shi"], 12: ["す", "su"], 13: ["せ", "se"], 14: ["そ", "so"],
+                        15: ["た", "ta"], 16: ["ち", "chi"], 17: ["つ", "tsu"], 18: ["て", "te"], 19: ["と", "to"],
+                        20: ["な", "na"], 21: ["に", "ni"], 22: ["ぬ", "nu"], 23: ["ね", "ne"], 24: ["の", "no"],
+                        25: ["は", "ha"], 26: ["ひ", "hi"], 27: ["ふ", "fu"], 28: ["へ", "he"], 29: ["ほ", "ho"],
+                        30: ["ま", "ma"], 31: ["み", "mi"], 32: ["む", "mu"], 33: ["め", "me"], 34: ["も", "mo"],
+                        35: ["や", "ya"], 36: ["ゆ", "yu"], 37: ["よ", "yo"],
+                        38: ["ら", "ra"], 39: ["り", "ri"], 40: ["る", "ru"], 41: ["れ", "re"], 42: ["ろ", "ro"],
+                        43: ["わ", "wa"], 44: ["を", "wo"],
+                        45: ["ん", "n"]]
+    
+    var hiraganaDictArray = [[Int: [String]]]()
+    var katakanaDictArray = [[Int: [String]]]()
     
     
     override func viewDidLoad() {
@@ -31,6 +48,7 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         self.picker.dataSource = self
         pickerData = ["A-N", "Ga-Po", "Kya-Pyo", "A-N and Ga-Po", "A-N and Kya-Pyo",
                       "Ga-Po and Kya-Pyo", "Full Set"]
+        hiraganaDictArray = [hiraganaANDict]
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,8 +93,7 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         // Triggered when user makes a change to the picker selection.
         // row and component represent what was selected
         
-        pickerSelection = pickerData[row]
-        print(pickerSelection)
+        pickerSelection = row
     }
     
     
@@ -115,12 +132,35 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
      @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
      }
-     /*
+    
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        super.prepare(for: segue, sender: sender)
+        
+        switch (segue.identifier ?? "") {
+        case "StartReview":
+            guard let kanaViewController = segue.destination as? KanaViewController
+                else {
+                    fatalError("Uexpected destination \(segue.destination)")
+            }
+            
+            kanaViewController.kana.name = kana.name
+            kanaViewController.kana.numberOfExcercises = kana.numberOfExcercises
+            
+            if kana.name == "Hiragana" {
+                kanaViewController.kana.dict = hiraganaDictArray[pickerSelection]
+            }
+            
+            
+            
+        default:
+            fatalError("Uexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
-    */
+    
 
 }

@@ -18,13 +18,8 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
     
     // Set a default value
     var dict = [0: ["あ", "a"]]
-    var kana = Kana(name: "Hiragana", numberOfExercises: 25, dict: [0: ["あ", "a"]])
-    
-    
-    
-    // This takes the upper bound, rand between 0 and value-1
-    // Pass paramater equal to last int in dict
-    var randInt = Int(arc4random_uniform(70))
+    var kana = Kana()
+    var randInt = 0;
     
     
     override func viewDidLoad() {
@@ -34,8 +29,12 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
         // This will allow me to handle the user entered text
         romajiTextField.delegate = self
         
+        // This takes the upper bound, rand between 0 and value-1
+        // Pass paramater equal to last int in dict
+        randInt = Int(arc4random_uniform(UInt32(kana.dict.count)))
+        
         // Pull random int, and use it to get a random kana from dictionary
-        kanaLabel.text = dict[randInt]![0]
+        kanaLabel.text = kana.dict[randInt]![0]
         
     }
 
@@ -57,12 +56,12 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
         let userInput = romajiTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Check user input
-        if userInput != dict[randInt]![1] {
+        if userInput != kana.dict[randInt]![1] {
             
             // If invalid, show x and correct answer
             iconImageView.image = UIImage(named: "redX")
             //correctKanaLabel.text = hiraganaDict[randInt]![1]
-            correctKanaLabel.text = dict[randInt]![1]
+            correctKanaLabel.text = kana.dict[randInt]![1]
         }
         else {
             
@@ -86,10 +85,10 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
     // Reload hiragana content, only call when user enters the right answer
     func reloadContent() {
         // generate new random int
-        randInt = Int(arc4random_uniform(70))
+        randInt = Int(arc4random_uniform(UInt32(kana.dict.count)))
         
         // Pull random int, and use it to get a random kana from dictionary
-        kanaLabel.text = dict[randInt]![0]
+        kanaLabel.text = kana.dict[randInt]![0]
         
         // Clear iconImageView
         iconImageView.image = nil
@@ -100,7 +99,10 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
+    //MARK: Actions
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     
     
     
