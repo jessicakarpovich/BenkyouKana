@@ -30,6 +30,8 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navbar.barTintColor = UIColor.white
+        
         //Hide done button until user completes all exercises
         navbar.topItem?.rightBarButtonItem = nil
         

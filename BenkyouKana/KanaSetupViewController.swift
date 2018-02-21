@@ -15,6 +15,7 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     @IBOutlet weak var katakanaButton: UIButton!
     @IBOutlet weak var excercisesTextField: UITextField!
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var doneBtn: UIBarButtonItem!
     
     var pickerData: [String] = [String]()
     var pickerSelection = 0
@@ -263,6 +264,13 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Disable done button until valid input is entered
+        doneBtn.isEnabled = false
+        
+        // Set border around Hiragana Button by default
+        hiraganaButton.layer.borderWidth = 3
+        hiraganaButton.layer.borderColor = UIColor(red:0.67, green:0.04, blue:0.39, alpha:1.0).cgColor
+        
         // Handle the text field's user input
         self.excercisesTextField.delegate = self
         self.picker.delegate = self
@@ -289,9 +297,11 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if excercisesTextField.text != "" {
+        if Int(excercisesTextField.text!) != nil {
             kana.numberOfExercises = Int(excercisesTextField.text!)!
+            doneBtn.isEnabled = true
         }
+        
     }
     
     
