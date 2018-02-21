@@ -16,18 +16,24 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var correctKanaLabel: UILabel!
     @IBOutlet weak var navbar: UINavigationBar!
+    @IBOutlet weak var cancelBtn: UIBarButtonItem!
+    @IBOutlet var doneBtn: UIBarButtonItem!
     
     // Set a default value
     var dict = [0: ["あ", "a"]]
     var kana = Kana()
     var randInt = 0;
-    var excerciseCounter = 0
+    var exerciseCounter = 0
     var correctCounter = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Hide done button until user completes all exercises
+        navbar.topItem?.rightBarButtonItem = nil
+        
+        // Set title to Hiragana/Katakana Review
         navbar.topItem?.title = kana.name + " Review"
         
         // Set the view controller to be the delegate of the text field
@@ -40,7 +46,8 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
         
         // Pull random int, and use it to get a random kana from dictionary
         kanaLabel.text = kana.dict[randInt]![0]
-        excerciseCounter += 1
+        // Add to exercise counter
+        exerciseCounter += 1
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,7 +72,6 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
             
             // If invalid, show x and correct answer
             iconImageView.image = UIImage(named: "redX")
-            //correctKanaLabel.text = hiraganaDict[randInt]![1]
             correctKanaLabel.text = kana.dict[randInt]![1]
         }
         else {
@@ -74,15 +80,24 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
             //iconImageView.image = UIImage(named: "greenCheck")
             correctKanaLabel.text = ""
             
+            // Add to correct counter
             correctCounter += 1
             
-            if excerciseCounter < kana.numberOfExcercises {
-                excerciseCounter += 1
+            // If not all of the exercises have been completed, load more
+            if exerciseCounter < kana.numberOfExercises {
+                exerciseCounter += 1
                 reloadContent()
-            } else if excerciseCounter == kana.numberOfExcercises {
+                
+                // If they have all been completed, show how much the user got right
+            } else if exerciseCounter == kana.numberOfExercises {
                 navbar.topItem?.title = kana.name + " Review Complete"
-                kanaLabel.text = "\(correctCounter)/ \(excerciseCounter)"
+                kanaLabel.text = "\(correctCounter)/ \(exerciseCounter)"
                 iconImageView.image = UIImage(named: "greenCheck")
+                
+                // Remove textfield
+                romajiTextField.removeFromSuperview()
+                navbar.topItem?.leftBarButtonItem = nil
+                navbar.topItem?.rightBarButtonItem = doneBtn
             }
         }
         return true
@@ -118,6 +133,9 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func done(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     
     
     

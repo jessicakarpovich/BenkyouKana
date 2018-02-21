@@ -13,7 +13,7 @@ class Kana {
     //MARK: Properties
     
     var name: String
-    var numberOfExcercises: Int
+    var numberOfExercises: Int
     var dict: [Int: [String]]
     
     //MARK: Initialization
@@ -22,7 +22,7 @@ class Kana {
         
         // Initialize stored properties
         self.name = name
-        self.numberOfExcercises = numberOfExercises
+        self.numberOfExercises = numberOfExercises
         self.dict = dict
         
         //Set defaults if values aren't present

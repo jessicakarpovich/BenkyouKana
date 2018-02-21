@@ -290,7 +290,7 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if excercisesTextField.text != "" {
-            kana.numberOfExcercises = Int(excercisesTextField.text!)!
+            kana.numberOfExercises = Int(excercisesTextField.text!)!
         }
     }
     
@@ -373,7 +373,7 @@ class KanaSetupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
             }
             
             kanaViewController.kana.name = kana.name
-            kanaViewController.kana.numberOfExcercises = kana.numberOfExcercises
+            kanaViewController.kana.numberOfExercises = kana.numberOfExercises
             
             if kana.name == "Hiragana" {
                 kanaViewController.kana.dict = hiraganaDictArray[pickerSelection]

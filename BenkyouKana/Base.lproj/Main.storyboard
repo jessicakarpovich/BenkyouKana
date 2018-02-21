@@ -157,7 +157,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bzF-Bw-hAe">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bzF-Bw-hAe" userLabel="Exercises Text Field">
                                 <rect key="frame" x="266" y="214" width="93" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -208,6 +208,11 @@
                                                 <action selector="cancel:" destination="BYZ-38-t0r" id="gjP-FW-lgc"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="e3i-ZU-5Wa">
+                                            <connections>
+                                                <action selector="done:" destination="BYZ-38-t0r" id="V6n-ol-tf1"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -253,7 +258,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cancelBtn" destination="krJ-7D-sfJ" id="tYj-tl-uJi"/>
                         <outlet property="correctKanaLabel" destination="ocf-45-Cr9" id="sDt-6D-a8a"/>
+                        <outlet property="doneBtn" destination="e3i-ZU-5Wa" id="dNC-FX-Jek"/>
                         <outlet property="iconImageView" destination="tkg-S6-zx8" id="jlR-6o-OcH"/>
                         <outlet property="kanaLabel" destination="6VS-4S-pCT" id="Hip-rz-mVN"/>
                         <outlet property="navbar" destination="Dat-e7-Ajl" id="4Iu-xK-brA"/>
@@ -284,6 +291,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sHC-9f-R05"/>
+        <segue reference="hpr-x8-PP9"/>
     </inferredMetricsTieBreakers>
 </document>
