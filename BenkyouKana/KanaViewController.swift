@@ -80,7 +80,12 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
             
             // if valid, show checkmark and clear the correctKanaLabel
             //iconImageView.image = UIImage(named: "greenCheck")
-            correctKanaLabel.text = ""
+            if correctKanaLabel.text != "" {
+                correctKanaLabel.text = ""
+                
+                // Subtract from correct counter
+                correctCounter -= 1
+            }
             
             // Add to correct counter
             correctCounter += 1
@@ -115,6 +120,7 @@ class KanaViewController: UIViewController, UITextFieldDelegate {
     
     // Reload hiragana content, only call when user enters the right answer
     func reloadContent() {
+        
         // generate new random int
         randInt = Int(arc4random_uniform(UInt32(kana.dict.count)))
         
